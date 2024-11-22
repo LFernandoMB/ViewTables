@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Central de Databases</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Central de Databases</h1>
+    <button onclick="window.location.reload();">Atualizar</button>
+
+    <div class="table-container">
+        <div class="table">
+            <h2>Banco Local</h2>
+            <table>
+                <tr><th>ID Aluno</th><th>ID Escola</th><th>Data-Hora</th></tr>
+                {% for row in banco_local %}
+                <tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="table">
+            <h2>Registro Único</h2>
+            <table>
+                <tr><th>ID Aluno</th><th>ID Escola</th><th>Data-Hora</th></tr>
+                {% for row in registro_unico %}
+                <tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="table">
+            <h2>Mock - Dados Recebidos</h2>
+            <table>
+                <tr><th>ID Aluno</th><th>ID Escola</th><th>Vetor</th></tr>
+                {% for row in dados_recebidos %}
+                <tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="table">
+            <h2>Mock - Dados Enviados</h2>
+            <table>
+                <tr><th>ID Aluno</th><th>ID Escola</th><th>Data-Hora</th></tr>
+                {% for row in dados_enviados %}
+                <tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
