@@ -11,7 +11,7 @@ h1 {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 80px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -19,8 +19,9 @@ button {
 }
 
 .table-container {
-    display: flex;
+    display: grid;
     justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -62,14 +63,18 @@ td:nth-child(2) th, th:nth-child(2) td {
     width: 60px; /* Largura fixa para colunas da segunda tabela */
 }
 
-td:nth-child(3), th:nth-child(3) {
-    width: 240px; /* Ajuste esta largura conforme necessário */
-    white-space: normal; 
-    word-wrap: break-word; /* Quebra a palavra se ela for muito longa */
-    overflow: hidden;
-    text-overflow: ellipsis;
+td:nth-child(3) th, th:nth-child(3) td {
+    width: 60px; /* Largura fixa para colunas da quarta tabela */
 }
 
-td:nth-child(4) th, th:nth-child(4) td {
-    width: 180px; /* Largura fixa para colunas da quarta tabela */
+td:nth-child(4), th:nth-child(4) {
+    width: 60px; /* Ajuste esta largura conforme necessário */
+}
+
+.vetor-coluna {
+    max-width: 120px; /* Ajuste o valor conforme necessário */
+    word-wrap: break-word; /* Quebra as palavras longas */
+    overflow: hidden; /* Esconde o excesso de conteúdo */
+    text-overflow: ellipsis; /* Adiciona "..." no final do texto longo */
+    white-space: nowrap; /* Opcional: se quiser impedir quebras de linha */
 }
