@@ -15,10 +15,13 @@ def fetch_data(db_name, query):
 @app.route('/')
 def index():
     # Consultas SQL para extrair dados das tabelas
-    banco_local = fetch_data("offline_data.db", "SELECT * FROM pending_data")
-    registro_unico = fetch_data("offline_data.db", "SELECT * FROM daily_log")
-    dados_recebidos = fetch_data("mock.db", "SELECT * FROM get_data")
-    dados_enviados = fetch_data("mock.db", "SELECT * FROM set_data")
+    db_path_mock = r"C:\Users\luis.bezerra\PycharmProjects\DemoAuth\assets\mock.db"
+    db_path_offline = r"C:\Users\luis.bezerra\PycharmProjects\DemoAuth\assets\offline_data.db"
+    
+    banco_local = fetch_data(db_path_offline, "SELECT * FROM pending_data")
+    registro_unico = fetch_data(db_path_offline, "SELECT * FROM daily_log")
+    dados_recebidos = fetch_data(db_path_mock, "SELECT * FROM get_data")
+    dados_enviados = fetch_data(db_path_mock, "SELECT * FROM set_data")
 
     # Renderiza o template HTML com os dados
     return render_template(
@@ -30,4 +33,6 @@ def index():
     )
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(host='0.0.0.0') # PDR
+    app.run(port=3000, debug=True) # PDR
+    # app.run(debug=True) # DEV
